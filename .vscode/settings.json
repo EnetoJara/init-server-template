@@ -114,7 +114,7 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "workbench.colorTheme": "Material Theme Ocean High Contrast",
-    "editor.fontFamily": "'Cascadia Code', 'Operator Mono', 'Fira Code iScript'",
+    "editor.fontFamily": "'Operator Mono', 'Cascadia Code', 'Fira Code iScript'",
     "editor.acceptSuggestionOnCommitCharacter": true,
     "editor.autoSurround": "languageDefined",
     "autoimport.doubleQuotes": true,
@@ -154,6 +154,7 @@
     "workbench.sideBar.location": "right",
     "autoimport.useSemiColon": true,
     "workbench.colorCustomizations": {
+        "editor.background": "#000",
         "activityBarBadge.background": "#FFA000",
         "list.activeSelectionForeground": "#FFA000",
         "list.inactiveSelectionForeground": "#FFA000",
@@ -184,5 +185,5 @@
     "vsintellicode.java.completionsEnabled": false,
     "prettier.arrowParens": "always",
     "editor.fontSize": 16,
-    "editor.fontWeight": "100",
+    "editor.fontWeight": "400",
 }

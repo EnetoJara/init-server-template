@@ -1,4 +1,3 @@
-
 /**
  *                                  Apache License
                                Version 2.0, January 2004
@@ -6,3 +5,5 @@
  
                                  Ernesto Jara Olveda
  */
+
+export { routes } from "./routes";
