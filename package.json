@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EnetoJara/init-server-template.git"
+    "url": "https://github.com/EnetoJara/init-server-template.git"
   },
   "keywords": [
     "node",
