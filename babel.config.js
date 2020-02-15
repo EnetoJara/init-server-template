@@ -1,5 +1,7 @@
+"use strict";
+
 module.exports = function (api) {
-    api.cache(() => NODE_ENV);
+    api.cache(() => process.env.NODE_ENV);
 
     api.env();
 

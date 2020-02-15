@@ -1,8 +1,6 @@
+import { expressConfig } from "./express-config";
+export { expressConfig } from "./express-config";
 
-/**
- *                                  Apache License
-                               Version 2.0, January 2004
-                             http://www.apache.org/licenses/
- 
-                                 Ernesto Jara Olveda
- */
+const express = expressConfig(process.env.NODE_ENV);
+
+express.listen(5000,()=>console.log("running"))

@@ -1,30 +1,6 @@
-/**
- *                                  Apache License
-                               Version 2.0, January 2004
-                             http://www.apache.org/licenses/
-
-                                 Ernesto Jara Olveda
- */
-
-import { NextFunction, Request, Response, Router } from "express";
-import { logger } from "../utils/logger";
-
-/**
- *
- * @param req
- * @param res
- * @param next
- */
-function endPointLogger (req: Request, res: Response, next: NextFunction): void {
-        logger.debug(`--------------------------------------------------------`)
-        logger.debug(`URL: ${req.url}`);
-        logger.debug(`IP: ${req.ip}`);
-        logger.debug(`METHOD: ${req.method}`);
-        logger.debug(`--------------------------------------------------------`)
-
-        next();
-}
-
+import { Router } from "express";
+import { ROUTE_LOGIN } from "../utils/constants";
+import { google } from "../utils/passport";
 
 /**
  * Place where all the endpoints of our server are defined.
@@ -33,8 +9,13 @@ function endPointLogger (req: Request, res: Response, next: NextFunction): void 
  */
 export function routes (): Router {
     const api: Router = Router ();
-    api.route("/v1/login").post(endPointLogger, (req,res) => {
 
-    })
+    api.route(ROUTE_LOGIN).post();
+
+    api.get("/auth/google", google.authenticate("google",  { scope: ['https://www.googleapis.com/auth/plus.login', 'https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/user.phonenumbers.read', 'https://www.googleapis.com/auth/user.addresses.read', 'https://www.googleapis.com/auth/user.birthday.read','https://www.googleapis.com/auth/contacts.readonly'] }));
+    api.get("/auth/google/callback", google.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
     return api;
 }

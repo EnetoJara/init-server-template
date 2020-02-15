@@ -1,3 +1,4 @@
+import { logger } from "./logger";
 /**
  * Utility function to check wether if we are running on production or not.
  *
@@ -9,4 +10,10 @@
  */
 export function is (running: string, positive: string, negative: string, env = "production"): string {
     return env === running ? positive : negative;
+}
+
+export function logError (err) {
+    for (const i of Object.keys(err)) {
+        logger.error(err[i]);
+    }
 }
